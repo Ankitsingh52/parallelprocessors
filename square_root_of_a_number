@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+using namespace std;
+int Integerpart(int x) 
+  {
+        int start=0;
+        int end=x;
+        int ans=0;
+        long long int mid=start+(end-start)/2;
+        while(start<=end)
+        {
+            long long square=mid*mid;
+            if(square<=x)
+            {
+                ans=mid;
+                start=mid+1;
+            }
+            if(square>x)
+            {
+                end=mid-1;
+            }
+            else
+            {
+                start=mid+1;
+            }
+            mid=start+(end-start)/2;
+        }
+        return ans;
+      
+  }
+  double moreprecision(int n,int precision,int tempsol)
+  {
+    double factor=1;
+    double ans=tempsol;
+    for(int i=0;i<3;i++)
+    {
+        factor=factor/10;
+        for(double j=ans;j*j<n;j=j+factor)
+        {
+            ans=j;
+        }
+    }
+    return ans;
+  }
+
+int main() 
+{
+    int n;
+    cin>>n;
+    int tempsol=Integerpart(n);
+    double ans=moreprecision(n,3,tempsol);
+    cout<<ans<<"\n";
+    return 0;
+}
+

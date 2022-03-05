@@ -1,0 +1,59 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+bool ispossible(int a[],int n ,int m,int mid)
+{
+     int food_count=0;
+     int time=0;
+    for( int i=0;i<n;i++)
+    {
+        time=a[i];
+        int j=2;
+        while(time<=mid)
+        {
+            food_count++;
+            time+=(a[i]*j);
+            j++;
+        }
+        if(food_count>=m)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+int main() 
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,m;
+        cin>>n>>m;
+        int a[m];
+        for(int i=0;i<m;i++)
+        {
+            cin>>a[i];
+        }
+        int start=0;
+        int end=1e8;
+        int mid=start+(end-start)/2;
+        int ans=0;
+        while(start<=end)
+        {
+            if(ispossible(a,m,n,mid))
+            {
+                ans=mid;
+                end=mid-1;
+            }
+            else
+            {
+                start=mid+1;
+            }
+            mid=start+(end-start)/2;
+        }
+        cout<<ans<<"\n";
+    }
+    return 0;
+}
+

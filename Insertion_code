@@ -1,0 +1,37 @@
+// Insertion Sort Code
+#include <iostream>
+using namespace std;
+
+int main() {
+	int i,j,n,t;
+	cin>>n;
+	int a[n];
+	for(i=0;i<n;i++)
+	{
+		cin>>a[i];
+	}
+	for(i=1;i<n;i++)
+	{
+		t=a[i];
+		for(j=i-1;j>=0;j--)
+		{
+			if(a[j]>t)
+			{
+				a[j+1]=a[j];
+			}
+			else
+			{
+				break;
+			}
+		
+		}
+		a[j+1]=t;
+	}
+	for(int i=0;i<n;i++)
+	{
+		cout<<a[i]<<" ";
+	}
+	cout<<"\n";
+	// your code goes here
+	return 0;
+}

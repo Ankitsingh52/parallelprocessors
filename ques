@@ -1,0 +1,63 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool binarysearch(string arr,int n,char key);
+int bs(string arr,int n,char key);
+int main()
+{
+    vector<char> str={'q','w','e','r','t','y','u','i','o','p'};
+    vector<char> str1={'a','s','d','f','g','h','j','k','l',';'};
+    vector<char> str2={'z','x','c','v','b','n','m','.','/'};
+    char n;
+    cin>>n;
+    string s;
+    cin>>s;
+    
+
+    return 0;
+}
+bool binarysearch(string arr,int n,char key)
+{
+    int start=0;
+    int end=n-1;
+    int mid=start+(end-start)/2;
+    while(start<=end)
+    {
+        if(arr[mid]==key)
+        {
+            return true;
+        }
+        else if(arr[mid]<key)
+        {
+            start=mid+1;
+        }
+        else
+        {
+            end=mid-1;
+        }
+
+    }
+    return false;    
+}
+int bs(string arr,int n,char key)
+{
+    int start=0;
+    int end=n-1;
+    int mid=start+(end-start)/2;
+    while(start<=end)
+    {
+        if(arr[mid]==key)
+        {
+            return mid;
+        }
+        else if(arr[mid]<key)
+        {
+            start=mid+1;
+        }
+        else
+        {
+            end=mid-1;
+        }
+
+    }
+    return -1;    
+}

@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+#include<algorithm>
+//#define vi vector<int>
+using namespace std;
+void fast() 
+{
+    cin.tie(0);
+    cin.sync_with_stdio(0);
+}
+void print(map<int,string> &m)
+{
+    for(auto &pr:m)
+    {
+        cout<<pr.first<<" "<<pr.second<<"\n";
+    }
+}
+
+
+
+int main()
+{
+    
+    fast();
+    unordered_map<string ,int> m;
+    int n;
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        string s;
+        cin>>s;
+        m[s]++;
+    }
+    int q;
+    cin>>q;
+    while(q--)
+    {
+        string x;
+        cin>>x;
+        cout<<m[x]<<"\n";
+    }
+    
+    return 0;
+}
+

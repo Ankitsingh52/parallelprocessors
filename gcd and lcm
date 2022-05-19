@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+ll gcd(ll num1,ll num2){
+    if(num2==0)
+        return num1;
+    return gcd(num2,num1%num2) ;
+}
+ll lcm(ll num1,ll num2)
+{
+    return (num1/gcd(num1,num2))*num2;
+}
+
+
+int main()
+{
+    ios_base::sync_with_stdio(false);  
+    cin.tie(NULL);
+    ll n1,n2;
+    cin>>n1>>n2;
+    ll gccd=gcd(n1,n2);
+    ll lccm=lcm(n1,n2);
+    cout<<gccd<<" "<<lccm<<"\n";
+    return 0;
+}
